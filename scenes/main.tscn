@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://clqumuwdoli13"]
+
+[ext_resource type="PackedScene" uid="uid://dygv3txxga7ro" path="res://scenes/game.tscn" id="1_axl3n"]
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="1_xfe8w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3tp7k"]
+shader = ExtResource("1_xfe8w")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.3
+shader_parameter/warp_amount = 0.05
+shader_parameter/noise_amount = 0.01
+shader_parameter/interference_amount = 0.1
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.3
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.3
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -6.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="main" type="Node"]
+
+[node name="container" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="veiwport" type="SubViewport" parent="container"]
+handle_input_locally = false
+size = Vector2i(320, 240)
+render_target_update_mode = 4
+
+[node name="game" parent="container/veiwport" instance=ExtResource("1_axl3n")]
+
+[node name="crt" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3tp7k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

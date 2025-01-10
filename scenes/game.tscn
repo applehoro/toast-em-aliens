@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dygv3txxga7ro"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_sqrco"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_523ls"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r2woj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_b4bbr"]
+sky_material = SubResource("ProceduralSkyMaterial_r2woj")
+
+[sub_resource type="Environment" id="Environment_jv7gs"]
+sky = SubResource("Sky_b4bbr")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 2
+
+[sub_resource type="PrismMesh" id="PrismMesh_aqrag"]
+size = Vector3(1, 1, 0.5)
+
+[node name="game" type="Node3D"]
+script = ExtResource("1_sqrco")
+
+[node name="env" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jv7gs")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="scroll" type="Node3D" parent="."]
+
+[node name="camera" type="Camera3D" parent="scroll"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 14, -8)
+
+[node name="player" type="Node3D" parent="scroll"]
+script = ExtResource("2_523ls")
+
+[node name="mesh" type="MeshInstance3D" parent="scroll/player"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_aqrag")
