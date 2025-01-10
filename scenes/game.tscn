@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dygv3txxga7ro"]
+[gd_scene load_steps=9 format=3 uid="uid://dygv3txxga7ro"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_sqrco"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_523ls"]
@@ -20,6 +20,13 @@ tonemap_mode = 2
 [sub_resource type="PrismMesh" id="PrismMesh_aqrag"]
 size = Vector3(1, 1, 0.5)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_dh4rq"]
+radius = 0.6
+
+[sub_resource type="QuadMesh" id="QuadMesh_wdf21"]
+size = Vector2(16, 24)
+orientation = 1
+
 [node name="game" type="Node3D"]
 script = ExtResource("1_sqrco")
 
@@ -30,14 +37,23 @@ environment = SubResource("Environment_jv7gs")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="scroll" type="Node3D" parent="."]
-
-[node name="camera" type="Camera3D" parent="scroll"]
+[node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 14, -8)
 
-[node name="player" type="Node3D" parent="scroll"]
+[node name="player" type="Area3D" parent="."]
 script = ExtResource("2_523ls")
 
-[node name="mesh" type="MeshInstance3D" parent="scroll/player"]
+[node name="mesh" type="MeshInstance3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("PrismMesh_aqrag")
+
+[node name="col" type="CollisionShape3D" parent="player"]
+shape = SubResource("SphereShape3D_dh4rq")
+
+[node name="center" type="Node3D" parent="."]
+
+[node name="scroll" type="Node3D" parent="."]
+
+[node name="quad" type="MeshInstance3D" parent="scroll"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 24)
+mesh = SubResource("QuadMesh_wdf21")
