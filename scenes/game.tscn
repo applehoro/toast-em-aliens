@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dygv3txxga7ro"]
+[gd_scene load_steps=7 format=3 uid="uid://dygv3txxga7ro"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_sqrco"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_523ls"]
+[ext_resource type="PackedScene" uid="uid://b6q7v7lgrxf0y" path="res://objects/player/player.tscn" id="2_tmdjh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r2woj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,12 +16,6 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.1
 tonemap_mode = 2
-
-[sub_resource type="PrismMesh" id="PrismMesh_aqrag"]
-size = Vector3(1, 1, 0.5)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_dh4rq"]
-radius = 0.6
 
 [sub_resource type="QuadMesh" id="QuadMesh_wdf21"]
 size = Vector2(16, 24)
@@ -40,15 +34,7 @@ shadow_enabled = true
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 14, -8)
 
-[node name="player" type="Area3D" parent="."]
-script = ExtResource("2_523ls")
-
-[node name="mesh" type="MeshInstance3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("PrismMesh_aqrag")
-
-[node name="col" type="CollisionShape3D" parent="player"]
-shape = SubResource("SphereShape3D_dh4rq")
+[node name="player" parent="." instance=ExtResource("2_tmdjh")]
 
 [node name="center" type="Node3D" parent="."]
 
