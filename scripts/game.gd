@@ -9,6 +9,9 @@ var camera_player_influence = 0.1;
 var scroll_speed = 2.0;
 
 func _ready() -> void:
+	Global.node_world = $scroll;
+	Global.node_player = $player;
+	
 	var p = node_center.global_position*( 1.0 - camera_player_influence ) + node_player.global_position*( camera_player_influence );
 	node_camera.look_at( p );
 
