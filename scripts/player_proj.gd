@@ -1,11 +1,11 @@
 extends Node3D
 
 var vel = 24.0;
-var damage = 1;
+var damage = 1.0;
 
 func _physics_process(delta: float) -> void:
 	var np = global_position + global_basis.z*vel*delta;
-	var r = Global.raycast( global_position, np, [ Global.node_player ] );
+	var r = Global.raycast( global_position, np, [ Global.node_player ], Global.layer_enemies );
 	if( r ):
 		var obj = r[ "collider" ];
 		if( obj.has_method( "damage" ) ):

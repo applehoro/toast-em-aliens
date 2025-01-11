@@ -93,6 +93,12 @@ mouse_capture={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="global"
+3d_physics/layer_2="player"
+3d_physics/layer_3="enemies"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

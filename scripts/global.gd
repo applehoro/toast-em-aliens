@@ -3,6 +3,9 @@ extends Node
 var node_world = null;
 var node_player = null;
 
+var layer_player = 0b0000000000000010;
+var layer_enemies = 0b0000000000000100;
+
 var pre = {
 	"player_proj": preload( "res://objects/proj/player_proj.tscn" ),
 };

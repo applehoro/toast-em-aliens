@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dygv3txxga7ro"]
+[gd_scene load_steps=8 format=3 uid="uid://dygv3txxga7ro"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_sqrco"]
 [ext_resource type="PackedScene" uid="uid://b6q7v7lgrxf0y" path="res://objects/player/player.tscn" id="2_tmdjh"]
+[ext_resource type="PackedScene" uid="uid://cam37tels54kq" path="res://objects/enemies/enemy_test.tscn" id="3_2scyh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r2woj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,6 +41,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 14,
 
 [node name="scroll" type="Node3D" parent="."]
 
-[node name="quad" type="MeshInstance3D" parent="scroll"]
+[node name="level" type="Node3D" parent="scroll"]
+
+[node name="enemy_test" parent="scroll/level" instance=ExtResource("3_2scyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49.2062)
+
+[node name="quad" type="MeshInstance3D" parent="scroll/level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 24)
 mesh = SubResource("QuadMesh_wdf21")
+skeleton = NodePath("../..")
