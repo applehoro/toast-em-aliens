@@ -21,14 +21,11 @@
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"Material",
+			"name":"player_mat",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0.800000011920929,
-					0.800000011920929,
-					0.800000011920929,
-					1
-				],
+				"baseColorTexture":{
+					"index":0
+				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
 			}
@@ -50,11 +47,24 @@
 			]
 		}
 	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"player_tex",
+			"uri":"player_tex.png"
+		}
+	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":213,
+			"count":202,
 			"max":[
 				0.8600850701332092,
 				0.39177224040031433,
@@ -70,13 +80,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":213,
+			"count":202,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":213,
+			"count":202,
 			"type":"VEC2"
 		},
 		{
@@ -89,32 +99,38 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":2556,
+			"byteLength":2424,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2556,
-			"byteOffset":2556,
+			"byteLength":2424,
+			"byteOffset":2424,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1704,
-			"byteOffset":5112,
+			"byteLength":1616,
+			"byteOffset":4848,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1464,
-			"byteOffset":6816,
+			"byteOffset":6464,
 			"target":34963
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9729,
+			"minFilter":9987
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":8280,
+			"byteLength":7928,
 			"uri":"player.bin"
 		}
 	]

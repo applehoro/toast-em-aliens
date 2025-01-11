@@ -13,3 +13,5 @@ script = ExtResource("1_yvdcg")
 shape = SubResource("SphereShape3D_dh4rq")
 
 [node name="player" parent="." instance=ExtResource("2_mlkf8")]
+
+[editable path="player"]

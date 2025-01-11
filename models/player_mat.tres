@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://vftln64cm0kg"]
+
+[ext_resource type="Texture2D" uid="uid://cnwc0hutwxivt" path="res://models/player_tex.png" id="1_a2l3h"]
+
+[resource]
+resource_name = "player_mat"
+cull_mode = 2
+shading_mode = 2
+specular_mode = 2
+albedo_texture = ExtResource("1_a2l3h")
+metallic_specular = 0.0
+roughness = 0.5
+texture_filter = 0
