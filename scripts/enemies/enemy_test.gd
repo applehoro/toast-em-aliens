@@ -21,6 +21,10 @@ func _physics_process(delta: float) -> void:
 	
 	elif( global_position.z < 32 ):
 		is_active = true;
+	
+	for obj in get_overlapping_areas():
+		if( obj.is_in_group( "player" ) ):
+			obj.damage( 1.0 );
 
 func damage( d ):
 	if( is_active ):
