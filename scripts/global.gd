@@ -8,6 +8,7 @@ var layer_enemies = 0b0000000000000100;
 
 var pre = {
 	"player_proj": preload( "res://objects/proj/player_proj.tscn" ),
+	"proj_circle": preload( "res://objects/proj/proj_circle.tscn" ),
 };
 
 func raycast( from, to, exclude = [], mask = 0xFFFFFFFF ):

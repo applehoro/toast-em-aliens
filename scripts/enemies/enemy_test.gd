@@ -2,13 +2,17 @@ extends Area3D
 
 var is_active = false;
 var vel = 4.0;
-
 var hp = 3.0;
-
+var shoot_c = 4.0;
 var motion_phase = 0.0;
 
 func _physics_process(delta: float) -> void:
 	if( is_active ):
+		shoot_c -= delta;
+		if( shoot_c <= 0.0 ):
+			shoot_c = 1.0;
+			Global.spawn( "proj_circle", global_position, 0.0 );
+		
 		motion_phase += delta*0.5;
 		if( motion_phase > 1.0 ):
 			motion_phase -= 1.0;

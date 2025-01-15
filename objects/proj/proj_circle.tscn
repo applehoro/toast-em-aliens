@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://iawl1vromteq"]
+
+[ext_resource type="Script" path="res://scripts/enemy_proj.gd" id="1_u6bku"]
+[ext_resource type="PackedScene" uid="uid://c2nsdij2ukbpu" path="res://models/proj/proj_circle.gltf" id="3_wrdn6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6d36t"]
+radius = 0.25
+
+[node name="proj_circle" type="Area3D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_u6bku")
+
+[node name="proj_circle" parent="." instance=ExtResource("3_wrdn6")]
+
+[node name="col" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6d36t")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
